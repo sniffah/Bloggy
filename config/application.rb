@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
-
+# If you are deploying to Heroku and MongoHQ,
+# you supply connection information here.
 require 'uri'
 if ENV['MONGOHQ_URL']
   mongo_uri = URI.parse(ENV['MONGOHQ_URL'])
@@ -33,6 +33,7 @@ module Bloggy
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password, :password_confirmation]
+    
   end
 end
