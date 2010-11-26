@@ -1,2 +1,6 @@
 <h1>Bloggy welcomes you!</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<p>
+<% @users.each do |user| %>
+  <p>User: <%= link_to user.name, user %> </p>
+<% end %>
+</p>
